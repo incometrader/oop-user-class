@@ -19,37 +19,44 @@ var PremiumUser = require("../src/user");
       expect(linda.name).toBe('Linda');
       expect(linda.occupation).toBe('Blogger');
       expect(linda.customProfile).toBeTruthy();
-      expect(linda.interests).toBe([blogging, fashion, entertainment]);
+      expect(linda.interests).toBe(['blogging', 'fashion', 'entertainment']);
     });
 
     it("user should be a type of `object`, and an instance of the `User` class", function(){
-      var johnson = new User('Johnson');
+      var johnson = new User('Johnson', 'Mason');
       expect(typeof johnson).toEqual(typeof {});
       expect(johnson instanceof User).toBeTruthy();
     });
 
-    it("Premium user should be a type of `object`, and an instance of the `Premium User` class", function(){
+    it("Premium user should be a type of `object`, and an instance of the `User` and `PremiumUser` classes", function(){
       var jonah = new PremiumUser('Jonah');
       expect(typeof jonah).toEqual(typeof {});
-      expect(jonah instanceof PremiumUser).toBeTruthy();
+      expect(jonah instanceof User).toBeTruthy();
+      expect(johnson instanceof PremiumUser).toBeTruthy();
     });
 
-    it("user has a file storage of 50MB except user is a Developer", function() {
+    it("every user has a file storage of 50MB. Developers only can double their file storage", function() {
       var dexter = new User('Dexter', 'Scientist');
-      expect(dexter.fileStorage()).toBe(50);
+      expect(dexter.fileStorage).toBe(50);
+      dexter.doubleFileStorage();
+      expect(dexter.fileStorage).toBe(50);
 
       var uyiosa = new User('Uyiosa', 'Developer');
-      expect(uyiosa.fileStorage()).toBe(100);
+      expect(uyiosa.fileStorage).toBe(50);
+      uyiosa.doubleFileStorage();
+      expect(uyiosa.fileStorage).toBe(100);
     
-      expect((function(){return new User('Audax', 'Developer');}()).fileStorage()).toBe(100);
+      expect((function(){return new User('Audax', 'Developer');}()).fileStorage).toBe(100);
     });
 
-    it("Premium user has a file storage of 500MB even if Premium user is a Developer", function() {
+    it("Premium user has a file storage of 500MB. Developers can double their fileStorage", function() {
       var olamide = new PremiumUser('Olamide', 'Rapper');
       expect(olamide.fileStorage).toBe(500);
 
       var iyin = new PremiumUser('Iyinoluwa', 'Developer');
       expect(iyin.fileStorage).toBe(500);
+      iyin.doubleFileStorage();
+      expect(iyin.fileStorage).toBe(1000);
     });
 
     it("user gets no commentLikes until they makes a comment", function() {

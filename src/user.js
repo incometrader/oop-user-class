@@ -9,9 +9,11 @@ function User(name, occupation, age, email){
 
 User.prototype = {
 	customProfile : false,
-	fileStorage : function(){
-		if (this.occupation === "Developer") return 100;
-		return 50;	
+	fileStorage : 50,
+	doubleFileStorage : function(){
+		if (this.occupation === "Developer"){
+			this.fileStorage *= 2;
+		}
 	},
 	appsIntegrations : function(){
 		if (this.age < 16) return 2;
@@ -32,14 +34,22 @@ User.prototype = {
 
 function PremiumUser(name, occupation, age, email, interests){
 	User.call(this, name, occupation, age, email);
+
 	this.interests = interests;
 }
+
+function inherit(child, parent){
+	child.prototype = Object.create(parent.prototype);
+	child.prototype.constructor = child;
+}
+inherit(PremiumUser, User);
+
+// PremiumUser.prototype = Object.create(User.prototype);
+// PremiumUser.prototype.constructor = PremiumUser;
+
 PremiumUser.prototype.customProfile = true;
 PremiumUser.prototype.twoFactorAuth = true;
 PremiumUser.prototype.fileStorage = 500;
-
-PremiumUser.prototype = Object.create(User.prototype);
-PremiumUser.prototype.constructor = PremiumUser;
 
 
 module.exports = User, PremiumUser;
