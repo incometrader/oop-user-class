@@ -39,27 +39,6 @@ User.prototype = {
 		}
 	}
 };
-// DECLARE PREMIUM USER
-function PremiumUser(name, occupation, age, email, interests){
-	User.call(this, name, occupation, age, email);
-
-	this.interests = interests;
-}
-
-// function inherit(child, parent){
-// 	child.prototype = Object.create(parent.prototype);
-// 	child.prototype.constructor = child;
-// }
-// inherit(PremiumUser, User);
-
-// INHERIT FROM USER PROTOTYPE
-PremiumUser.prototype = Object.create(User.prototype);
-PremiumUser.prototype.constructor = PremiumUser;
-
-// MAKE UNIQUE PREMIUM USER PROPERTIES
-PremiumUser.prototype.customProfile = true;
-PremiumUser.prototype.twoFactorAuth = true;
-PremiumUser.prototype.fileStorage = 500;
 
 
-module.exports = User, PremiumUser;
+module.exports = User;

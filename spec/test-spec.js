@@ -1,6 +1,6 @@
 var jasmine = require("jasmine");
 var User = require("../src/user");
-var PremiumUser = require("../src/user");
+var PremiumUser = require("../src/premiumUser");
 
 (function(){
   "use strict";
@@ -15,11 +15,11 @@ var PremiumUser = require("../src/user");
     });
 
     it("Premium user name and occupation should be a property of the Premium user", function() {
-      var linda = new PremiumUser('Linda', 'Blogger', 36, "lindaikeji@gmail.com", ['blogging', 'fashion', 'entertainment']);
+      var linda = new PremiumUser('Linda', 'Blogger', 36, 'lindaikeji@gmail.com', 'blogging');
       expect(linda.name).toBe('Linda');
       expect(linda.occupation).toBe('Blogger');
       expect(linda.customProfile).toBeTruthy();
-      expect(linda.interests).toBe(['blogging', 'fashion', 'entertainment']);
+      expect(linda.interest).toBe('blogging');
     });
 
     it("user should be a type of `object`, and an instance of the `User` class", function(){
@@ -46,7 +46,7 @@ var PremiumUser = require("../src/user");
       uyiosa.doubleFileStorage();
       expect(uyiosa.fileStorage).toBe(100);
     
-      expect((function(){return new User('Audax', 'Developer');}()).fileStorage).toBe(100);
+      expect((function(){return new User('Audax', 'Developer');}()).fileStorage).toBe(50);
     });
 
     it("Premium user has a file storage of 500MB. Developers can double their fileStorage", function() {
