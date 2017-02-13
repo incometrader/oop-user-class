@@ -23,7 +23,7 @@ var PremiumUser = require("../src/user");
     });
 
     it("user should be a type of `object`, and an instance of the `User` class", function(){
-      var johnson = new User('Johnson', 'Mason');
+      var johnson = new User('Johnson');
       expect(typeof johnson).toEqual(typeof {});
       expect(johnson instanceof User).toBeTruthy();
     });
@@ -32,7 +32,7 @@ var PremiumUser = require("../src/user");
       var jonah = new PremiumUser('Jonah');
       expect(typeof jonah).toEqual(typeof {});
       expect(jonah instanceof User).toBeTruthy();
-      expect(johnson instanceof PremiumUser).toBeTruthy();
+      expect(jonah instanceof PremiumUser).toBeTruthy();
     });
 
     it("every user has a file storage of 50MB. Developers only can double their file storage", function() {
