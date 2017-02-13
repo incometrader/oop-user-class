@@ -1,3 +1,5 @@
+var jasmine = require("jasmine");
+var User = require("../src/user");
 
 (function(){
   "use strict";
