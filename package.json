@@ -6,16 +6,16 @@
   "scripts": {
     "test": "jasmine"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/incometrader/oop-user-class.git"
+  },
   "keywords": [
     "javascript",
     "class",
     "user",
     "oop"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/incometrader/oop-user-class"
-  },
   "author": "Ignatius Ukwuoma",
   "license": "MIT",
   "bugs": {
