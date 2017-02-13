@@ -30,7 +30,7 @@ User.prototype = {
 		var rewardPoints = numOfPages * 5;
 		this.points += rewardPoints;
 	},
-	// EVERYONE GET 5 COMMENTLIKES PER LINE OF COMMENT MADE. DEVELOPERS GET 10
+	// EVERYONE GETS 5 COMMENTLIKES PER LINE OF COMMENT MADE. DEVELOPERS GET 10
 	comment : function(numOfLines){
 		if (this.occupation === "Developer"){
 			this.commentLikes = numOfLines * 10;

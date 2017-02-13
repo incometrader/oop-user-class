@@ -1,6 +1,6 @@
 var jasmine = require("jasmine");
 var User = require("./user");
-// DECLARE PREMIUM USER
+
 function PremiumUser(name, occupation, age, email, interest){
 	User.call(this, name, occupation, age, email);
 

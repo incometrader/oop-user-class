@@ -1,7 +1,7 @@
 {
-  "name": "user_oop",
+  "name": "user_class_oop",
   "version": "1.0.0",
-  "description": "User Class implementation to instantiate various users on my Blog",
+  "description": "User Class implementation to instantiate various users on a Blog",
   "main": "src/user.js",
   "scripts": {
     "test": "jasmine"
@@ -12,8 +12,16 @@
     "user",
     "oop"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/incometrader/oop-user-class"
+  },
   "author": "Ignatius Ukwuoma",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/incometrader/oop-user-class/issues"
+  },
+  "homepage": "https://github.com/incometrader/oop-user-class#readme",
   "devDependencies": {
     "jasmine": "^2.5.3"
   }

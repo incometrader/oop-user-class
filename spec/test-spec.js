@@ -14,10 +14,10 @@ var PremiumUser = require("../src/premiumUser");
       expect(fisayo.customProfile).toBe(false);
     });
 
-    it("Premium user name and occupation should be a property of the Premium user", function() {
+    it("Premium user name and interest should be a property of the Premium user", function() {
       var linda = new PremiumUser('Linda', 'Blogger', 36, 'lindaikeji@gmail.com', 'blogging');
       expect(linda.name).toBe('Linda');
-      expect(linda.occupation).toBe('Blogger');
+      expect(linda.email).toBe('lindaikeji@gmail.com');
       expect(linda.customProfile).toBeTruthy();
       expect(linda.interest).toBe('blogging');
     });
@@ -28,14 +28,14 @@ var PremiumUser = require("../src/premiumUser");
       expect(johnson instanceof User).toBeTruthy();
     });
 
-    it("Premium user should be a type of `object`, and an instance of the `User` and `PremiumUser` classes", function(){
+    it("Premium user should be a type of `object`, and an instance of both the `User` and `PremiumUser` classes", function(){
       var jonah = new PremiumUser('Jonah');
       expect(typeof jonah).toEqual(typeof {});
       expect(jonah instanceof User).toBeTruthy();
       expect(jonah instanceof PremiumUser).toBeTruthy();
     });
 
-    it("every user has a file storage of 50MB. Developers only can double their file storage", function() {
+    it("every user has a file storage of 50MB. Only developers can double their file storage", function() {
       var dexter = new User('Dexter', 'Scientist');
       expect(dexter.fileStorage).toBe(50);
       dexter.doubleFileStorage();
@@ -49,8 +49,10 @@ var PremiumUser = require("../src/premiumUser");
       expect((function(){return new User('Audax', 'Developer');}()).fileStorage).toBe(50);
     });
 
-    it("Premium user has a file storage of 500MB. Developers can double their fileStorage", function() {
+    it("Premium user has a file storage of 500MB. Only developers can double their file storage", function() {
       var olamide = new PremiumUser('Olamide', 'Rapper');
+      expect(olamide.fileStorage).toBe(500);
+      olamide.doubleFileStorage();
       expect(olamide.fileStorage).toBe(500);
 
       var iyin = new PremiumUser('Iyinoluwa', 'Developer');
@@ -65,13 +67,13 @@ var PremiumUser = require("../src/premiumUser");
       victor.comment(5);
       expect(victor.commentLikes).toBe(50);
 
-      var tiwa = new User('Tiwatope', 'Nurse');
+      var tiwa = new PremiumUser('Tiwatope', 'Nurse');
       expect(tiwa.commentLikes).toBe(0);
       tiwa.comment(4);
       expect(tiwa.commentLikes).toBe(20);
     });
 
-    it("user gets no point until user reads a post", function() {
+    it("user gets no point until they read a post", function() {
       var daniel = new User('Daniel', 'Banker');
       expect(daniel.points).toBe(0);
       daniel.read(3);
