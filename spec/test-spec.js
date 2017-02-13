@@ -13,7 +13,7 @@ var User = require("../src/user");
       expect(fisayo.customProfile).toBe(false);
     });
 
-    it("user name and occupation should be a property of the user", function() {
+    it("Premium user name and occupation should be a property of the Premium user", function() {
       var linda = new PremiumUser('Linda', 'Blogger', 36, "lindaikeji@gmail.com", ['blogging', 'fashion', 'entertainment']);
       expect(linda.name).toBe('Linda');
       expect(linda.occupation).toBe('Blogger');
@@ -21,10 +21,16 @@ var User = require("../src/user");
       expect(linda.interests).toBe([blogging, fashion, entertainment]);
     });
 
-    it("Premium user should be a type of `object`, and an instance of the `User` class", function(){
+    it("user should be a type of `object`, and an instance of the `User` class", function(){
       var johnson = new User('Johnson');
       expect(typeof johnson).toEqual(typeof {});
       expect(johnson instanceof User).toBeTruthy();
+    });
+
+    it("Premium user should be a type of `object`, and an instance of the `Premium User` class", function(){
+      var johnson = new PremiumUser('Johnson');
+      expect(typeof johnson).toEqual(typeof {});
+      expect(johnson instanceof PremiumUser).toBeTruthy();
     });
 
     it("user has a file storage of 50MB except user is a Developer", function() {
@@ -76,14 +82,6 @@ var User = require("../src/user");
       var temi = new User();
       expect(temi.name).toEqual('Anonymous');
       expect(temi.email).toBe('user@myblog.com');
-    });
-
-    it("user read function should return the instance of the User class", function() {
-      var janet = new User('Janet', 'Trader');
-      var readingTrader = janet.read(7);
-      expect(readingTrader instanceof User).toBeTruthy();
-      expect(typeof readingTrader.read).toBe(typeof (function (){}));
-      expect(janet.points).toBe(readingTrader.points);
     });
 
   });
