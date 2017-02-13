@@ -1,0 +1,20 @@
+{
+  "name": "user_oop",
+  "version": "1.0.0",
+  "description": "User Class implementation to instantiate various users on my Blog",
+  "main": "src/user.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [
+    "javascript",
+    "class",
+    "user",
+    "oop"
+  ],
+  "author": "Ignatius Ukwuoma",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.5.3"
+  }
+}
