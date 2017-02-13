@@ -1,5 +1,6 @@
 var jasmine = require("jasmine");
 var User = require("../src/user");
+var PremiumUser = require("../src/user");
 
 (function(){
   "use strict";
@@ -28,9 +29,9 @@ var User = require("../src/user");
     });
 
     it("Premium user should be a type of `object`, and an instance of the `Premium User` class", function(){
-      var johnson = new PremiumUser('Johnson');
-      expect(typeof johnson).toEqual(typeof {});
-      expect(johnson instanceof PremiumUser).toBeTruthy();
+      var jonah = new PremiumUser('Jonah');
+      expect(typeof jonah).toEqual(typeof {});
+      expect(jonah instanceof PremiumUser).toBeTruthy();
     });
 
     it("user has a file storage of 50MB except user is a Developer", function() {

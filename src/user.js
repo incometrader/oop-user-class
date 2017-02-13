@@ -30,4 +30,16 @@ User.prototype = {
 	}
 };
 
-module.exports = User;
+function PremiumUser(name, occupation, age, email, interests){
+	User.call(this, name, occupation, age, email);
+	this.interests = interests;
+}
+PremiumUser.prototype.customProfile = true;
+PremiumUser.prototype.twoFactorAuth = true;
+PremiumUser.prototype.fileStorage = 500;
+
+PremiumUser.prototype = Object.create(User.prototype);
+PremiumUser.prototype.constructor = PremiumUser;
+
+
+module.exports = User, PremiumUser;
